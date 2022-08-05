@@ -24,7 +24,7 @@ namespace LogBook
 
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
-            //hg
+            //hghj
         }
     }
 }
