@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace LogBook
 {
     public partial class Form1 : Form
     {
+        public int kristalsayi = 5;
         public Form1()
         {
             InitializeComponent();
@@ -44,19 +46,16 @@ namespace LogBook
                 {
                     UserControl1 userControl = new UserControl1();
                     userControl.Name = item.Name;
-                    userControl.Date = DateTime.Now.ToString();
+                    userControl.Date = DateTime.Now.ToShortDateString();
                     userControl.Number=item.Id.ToString();
                     userControl.Location = new Point(x, y);
                     y += 100;
                     this.Controls.Add(userControl);
                 }
-            
-
-
-
-
         }
 
+       
+        
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
@@ -68,6 +67,39 @@ namespace LogBook
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2VScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (var item in this.Controls)
+            {
+                if(item is UserControl1 uc)
+                {
+                    foreach (var item1 in uc.Controls)
+                    {
+                        if(item1 is Guna2RadioButton rb)
+                        {
+                            if (rb.BackColor == Color.Transparent) { rb.Checked = true;}
+                            
+                        }
+                    }
+                }
+            }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
